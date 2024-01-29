@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Collider2D))]
 public class Prop : MonoBehaviour {
 
     [SerializeField] UnityEvent onPlayerEnter;
@@ -14,6 +15,5 @@ public class Prop : MonoBehaviour {
 
     public virtual void OnPlayerTouched(Player player) {
         onPlayerEnter.Invoke();
-        Debug.Log("Player touched " + this.gameObject.name);
     }
 }

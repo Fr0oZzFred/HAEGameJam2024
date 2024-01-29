@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour {
 
     public void MakeNoise(float Addnoise) {
         noise += Addnoise;
-        Mathf.Clamp(noise, 0.0f, 100.0f);
+        noise = Mathf.Clamp(noise, 0.0f, 100.0f);
     }
 
     IEnumerator ReduceNoise(float value, float delay) {
