@@ -12,7 +12,7 @@ public class Prop : MonoBehaviour {
             OnPlayerTouched(collision.gameObject.GetComponent<Player>());
     }
 
-    void OnPlayerTouched(Player player) {
+    public virtual void OnPlayerTouched(Player player) {
         onPlayerEnter.Invoke();
         Debug.Log("Player touched " + this.gameObject.name);
     }
