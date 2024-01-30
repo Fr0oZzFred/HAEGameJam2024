@@ -12,6 +12,8 @@ public class LevelManager : MonoBehaviour {
 
     public float Noise => noise;
     float noise;
+    public delegate void OnNoiseChangedDelegate(float NewNoise);
+    public OnNoiseChangedDelegate OnNoiseChanged;
 
     private void Awake() {
         //Careful => Will replace old Level Instance
@@ -36,6 +38,7 @@ public class LevelManager : MonoBehaviour {
     public void MakeNoise(float Addnoise) {
         noise += Addnoise;
         noise = Mathf.Clamp(noise, 0.0f, 100.0f);
+        OnNoiseChanged.Invoke(noise);
     }
 
     IEnumerator ReduceNoise(float value, float delay) {
