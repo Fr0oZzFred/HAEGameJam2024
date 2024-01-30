@@ -7,9 +7,12 @@ public class Player : MonoBehaviour {
 
     [SerializeField] InputActionAsset inputActions;
     InputAction moveAction;
-
     Vector3 movement;
-    public GameObject CarriedItem;
+
+
+    [SerializeField] Transform carriedItemTransform;
+    public GameObject CarriedItem => carriedItem;
+    GameObject carriedItem;
 
     private void Awake() {
         moveAction = inputActions.FindActionMap("Gameplay").FindAction("move");
@@ -37,15 +40,22 @@ public class Player : MonoBehaviour {
             moveAction.Disable();
     }
     public void TryToBindFoodDropAction() {
-        if (!CarriedItem) return;
-        Food carriedFood = CarriedItem.GetComponent<Food>();
+        if (!carriedItem) return;
+        Food carriedFood = carriedItem.GetComponent<Food>();
         if (!carriedFood) return;
         carriedFood.BindDropAction();
     }
     public void TryToUnbindFoodDropAction() {
-        if (!CarriedItem) return;
-        Food carriedFood = CarriedItem.GetComponent<Food>();
+        if (!carriedItem) return;
+        Food carriedFood = carriedItem.GetComponent<Food>();
         if (!carriedFood) return;
         carriedFood.UnbindDropAction();
+    }
+
+    public void SetCarriedItem(GameObject go) {
+        carriedItem = go;
+        if (!go) return;
+        go.transform.SetParent(carriedItemTransform, false);
+        go.transform.localPosition = Vector3.zero;
     }
 }

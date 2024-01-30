@@ -32,13 +32,12 @@ public class Food : MonoBehaviour {
     }
     void Pickup() {
         dropAction.performed += OnDropAction;
-        LevelManager.Instance.Player.CarriedItem = this.gameObject;
-        this.transform.SetParent(LevelManager.Instance.Player.transform);
+        LevelManager.Instance.Player.SetCarriedItem(this.gameObject);
     }
 
     void Drop() {
         dropAction.performed -= OnDropAction;
-        LevelManager.Instance.Player.CarriedItem = null;
+        LevelManager.Instance.Player.SetCarriedItem(null);
         this.transform.SetParent(null);
 
     }
