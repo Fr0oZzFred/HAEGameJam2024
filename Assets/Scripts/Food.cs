@@ -45,4 +45,14 @@ public class Food : MonoBehaviour {
     private void OnDropAction(InputAction.CallbackContext ctx) {
         TryToDrop();
     }
+    public void BindDropAction() {
+        dropAction.performed += OnDropAction;
+    }
+    public void UnbindDropAction() {
+        dropAction.performed -= OnDropAction;
+    }
+
+    private void OnDestroy() {
+        UnbindDropAction();
+    }
 }

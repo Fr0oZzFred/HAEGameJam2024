@@ -36,4 +36,16 @@ public class Player : MonoBehaviour {
         else
             moveAction.Disable();
     }
+    public void TryToBindFoodDropAction() {
+        if (!CarriedItem) return;
+        Food carriedFood = CarriedItem.GetComponent<Food>();
+        if (!carriedFood) return;
+        carriedFood.BindDropAction();
+    }
+    public void TryToUnbindFoodDropAction() {
+        if (!CarriedItem) return;
+        Food carriedFood = CarriedItem.GetComponent<Food>();
+        if (!carriedFood) return;
+        carriedFood.UnbindDropAction();
+    }
 }

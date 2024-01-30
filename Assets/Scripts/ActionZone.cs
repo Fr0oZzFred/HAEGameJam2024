@@ -7,7 +7,9 @@ public class ActionZone : MonoBehaviour {
     [SerializeField] InputActionAsset inputActions;
     InputAction interactAction;
 
+    [SerializeField] UnityEvent onPlayerEnterEvent;
     [SerializeField] UnityEvent onInteractEvent;
+    [SerializeField] UnityEvent onPlayerLeaveEvent;
     private void Awake() {
         interactAction = inputActions.FindActionMap("gameplay").FindAction("interact");
     }
@@ -22,9 +24,11 @@ public class ActionZone : MonoBehaviour {
     }
     private void OnPlayerEnter() {
         interactAction.performed += OnInteract;
+        onPlayerEnterEvent.Invoke();
     }
     private void OnPlayerLeave() {
         interactAction.performed -= OnInteract;
+        onPlayerLeaveEvent.Invoke();
     }
 
     void OnInteract(InputAction.CallbackContext context) {
