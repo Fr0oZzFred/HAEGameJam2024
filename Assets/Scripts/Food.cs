@@ -2,13 +2,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [System.Serializable]
-public enum Candy {
-    Chocolate = 0,
-    Lollipop = 1,
-    Candy = 2,
+public enum FoodType {
+    Candy = 0,
+    CandyCorn = 1,
+    Chocolate = 2,
+    LollipopA = 3,
+    LollipopB = 4,
 }
 
 public class Food : MonoBehaviour {
+    public FoodType Type => type;
+    [SerializeField] FoodType type;
+
 
     [SerializeField] InputActionAsset inputActions;
     InputAction dropAction;
