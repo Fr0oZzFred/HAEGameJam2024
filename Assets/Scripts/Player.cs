@@ -14,8 +14,14 @@ public class Player : MonoBehaviour {
     public GameObject CarriedItem => carriedItem;
     GameObject carriedItem;
 
+    SpriteRenderer sr;
+
+    public bool IsVisible => sr.enabled;
+    public bool IsCarryingFood => carriedItem.GetComponent<Food>() != null;
+
     private void Awake() {
         moveAction = inputActions.FindActionMap("Gameplay").FindAction("move");
+        sr = GetComponent<SpriteRenderer>();
     }
     void Update() {
         UpdateMovementInput();

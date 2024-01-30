@@ -17,11 +17,21 @@ public class Mother : MonoBehaviour {
     private void OnNoiseChanged(float NewNoise) {
         if(NewNoise >= warningThreshold) {
             onWarningEvent.Invoke();
+            Check();
             return;
         }
         if(NewNoise >= doubtThreshold) {
             onDoubtEvent.Invoke();
+            float r = UnityEngine.Random.Range(0.0f,100.0f);
+            if (r >= 50.0f) Check();
             return;
+        }
+    }
+
+    void Check() {
+        if (LevelManager.Instance.Player.CarriedItem &&
+            LevelManager.Instance.Player.IsVisible) {
+            Debug.Log("Lose");
         }
     }
 }
