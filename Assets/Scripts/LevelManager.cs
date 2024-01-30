@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     private void Start() {
-        StartCoroutine(ReduceNoise(10.0f, 5.0f));
+        StartCoroutine(ReduceNoise(2.0f, 1.0f));
         objective.OnGiveFood += OnGiveFood;
     }
 
