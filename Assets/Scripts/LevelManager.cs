@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,9 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour {
     public static LevelManager Instance { get; private set; }
     public Player Player => player;
+    public Objective Objective => objective;
     [SerializeField] Player player;
+    [SerializeField] Objective objective;
 
     public float Noise => noise;
     float noise;
@@ -17,6 +20,17 @@ public class LevelManager : MonoBehaviour {
 
     private void Start() {
         StartCoroutine(ReduceNoise(10.0f, 5.0f));
+        objective.OnGiveFood += OnGiveFood;
+    }
+
+    private void OnGiveFood(FoodType foodType) {
+        if(foodType == FoodType.LollipopB) {
+            Debug.Log("Game Over");
+            return;
+        }
+
+        Debug.Log("add score");
+        objective.SetAskedfood(foodType + 1);
     }
 
     public void MakeNoise(float Addnoise) {

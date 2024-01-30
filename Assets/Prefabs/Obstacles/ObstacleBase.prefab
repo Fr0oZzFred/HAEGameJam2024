@@ -148,7 +148,7 @@ MonoBehaviour:
   onPlayerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1659246661612472951}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: MakeNoise
         m_Mode: 4

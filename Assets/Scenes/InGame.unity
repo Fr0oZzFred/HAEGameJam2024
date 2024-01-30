@@ -2738,6 +2738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2029240257}
+  objective: {fileID: 1595854386}
 --- !u!1 &1525875407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3342,7 +3343,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98447ffb1d4fef4438efa4e74bd7359b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  askedFood: 0
+  foodIcons:
+  - {fileID: 21300000, guid: d3f8b38db478dd6499059aaec7c3b6f6, type: 3}
+  - {fileID: 21300000, guid: 7d28501eb3b8af541aa6e2fd8f0ce395, type: 3}
+  - {fileID: 21300000, guid: 818a7596d30659b40be1997287029996, type: 3}
+  - {fileID: 21300000, guid: d5b58e3ca7617c342ad1efb0b602e4a7, type: 3}
+  - {fileID: 21300000, guid: bbed6a9ba9f225b4a9185fe06f1b83fe, type: 3}
+  askedfoodSprite: {fileID: 2134770804}
 --- !u!114 &1595854387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3976,7 +3983,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 7d28501eb3b8af541aa6e2fd8f0ce395, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3f8b38db478dd6499059aaec7c3b6f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
