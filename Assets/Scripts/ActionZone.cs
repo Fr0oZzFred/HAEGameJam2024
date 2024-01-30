@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -13,23 +10,21 @@ public class ActionZone : MonoBehaviour {
     [SerializeField] UnityEvent onInteractEvent;
     private void Awake() {
         interactAction = inputActions.FindActionMap("gameplay").FindAction("interact");
-        interactAction.performed += ctx => { OnInteract(ctx); };
-        interactAction.Disable();
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject == LevelManager.Instance.Player.gameObject)
-            OnPlayerEnter(collision.gameObject.GetComponent<Player>());
+            OnPlayerEnter();
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.gameObject == LevelManager.Instance.Player.gameObject)
-            OnPlayerLeave(collision.gameObject.GetComponent<Player>());
+            OnPlayerLeave();
 
     }
-    private void OnPlayerEnter(Player player) {
-        interactAction.Enable();
+    private void OnPlayerEnter() {
+        interactAction.performed += OnInteract;
     }
-    private void OnPlayerLeave(Player player) {
-        interactAction.Disable();
+    private void OnPlayerLeave() {
+        interactAction.performed -= OnInteract;
     }
 
     void OnInteract(InputAction.CallbackContext context) {

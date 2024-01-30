@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     InputAction moveAction;
 
     Vector3 movement;
+    public GameObject CarriedItem;
 
     private void Awake() {
         moveAction = inputActions.FindActionMap("Gameplay").FindAction("move");
