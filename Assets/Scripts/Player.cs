@@ -28,4 +28,11 @@ public class Player : MonoBehaviour {
     void OnDisable() {
         inputActions.FindActionMap("gameplay").Disable();
     }
+    public void ToggleVisibility() {
+        GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+        if (GetComponent<SpriteRenderer>().enabled)
+            moveAction.Enable();
+        else
+            moveAction.Disable();
+    }
 }

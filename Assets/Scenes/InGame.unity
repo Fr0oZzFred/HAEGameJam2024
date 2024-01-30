@@ -3284,23 +3284,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3661558071338407569, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: onInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3661558071338407569, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: onInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1436209837}
+      objectReference: {fileID: 2029240257}
     - target: {fileID: 3661558071338407569, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: onInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3661558071338407569, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: onInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MakeNoise
+      value: ToggleVisibility
       objectReference: {fileID: 0}
     - target: {fileID: 3661558071338407569, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: onInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LevelManager, Assembly-CSharp
+      value: Player, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3661558071338407569, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: onInteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
@@ -3312,11 +3312,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8168454172876505189, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.28
+      value: -2.69
       objectReference: {fileID: 0}
     - target: {fileID: 8168454172876505189, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.45
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 8168454172876505189, guid: a81fd87389624f8458ea31b3781bd222, type: 3}
       propertyPath: m_LocalPosition.z
