@@ -72,7 +72,7 @@ public class Mother : MonoBehaviour {
         LevelManager.Instance.MakeNoise(-100.0f);
         if (LevelManager.Instance.Player.CarriedItem &&
             LevelManager.Instance.Player.IsVisible) {
-            Debug.Log("Lose");
+            GameManager.Instance.ChangeGameState(GameStates.GameOverLose);
         }
     }
 }

@@ -7,8 +7,15 @@ public class InputBox : MonoBehaviour
     [SerializeField] string text1;
     [SerializeField] string text2;
     bool toogle = false;
+    [SerializeField] SpriteRenderer input;
+    [SerializeField] Sprite inputPC;
+    [SerializeField] Sprite inputGamepad;
+
     private void OnValidate() {
         SetInputText(text1);
+    }
+    private void Update() {
+        input.sprite = GameManager.Instance.IsUsingGamepad ? inputGamepad : inputPC;
     }
     public void ToogleText() {
         toogle = !toogle;

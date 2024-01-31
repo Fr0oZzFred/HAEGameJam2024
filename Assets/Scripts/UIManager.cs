@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,15 +6,34 @@ public class UIManager : MonoBehaviour {
 
     [SerializeField] Slider NoiseGauge;
 
+    [SerializeField] GameObject mainMenuHUD;
+    [SerializeField] GameObject creditsHUD;
+    [SerializeField] GameObject inGameHUD;
+    [SerializeField] GameObject pauseHUD;
+    [SerializeField] GameObject gameOverBadHUD;
+    [SerializeField] GameObject gameOverGoodHUD;
+
     private void Awake() {
         if (!Instance)
             Instance = this;
         else
             Destroy(this.gameObject);
     }
+    private void Start() {
+        LevelManager.Instance.OnNoiseChanged += OnNoiseChanged;
+        GameManager.Instance.OnGameStateChanged += OnGameStateChanged;
+    }
 
-    private void Update() {
-        if (LevelManager.Instance)
-            NoiseGauge.value = LevelManager.Instance.Noise * 0.01f;
+    private void OnNoiseChanged(float NewNoise) {
+        NoiseGauge.value = LevelManager.Instance.Noise * 0.01f;
+    }
+
+    private void OnGameStateChanged(GameStates newState) {
+        mainMenuHUD     .SetActive(newState == GameStates.Menu);
+        creditsHUD      .SetActive(newState == GameStates.Credit);
+        inGameHUD       .SetActive(newState == GameStates.InGame);
+        pauseHUD        .SetActive(newState == GameStates.Pause);
+        gameOverBadHUD  .SetActive(newState == GameStates.GameOverLose);
+        gameOverGoodHUD .SetActive(newState == GameStates.GameOverWin);
     }
 }

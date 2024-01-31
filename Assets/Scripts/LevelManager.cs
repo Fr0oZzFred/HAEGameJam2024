@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour {
 
     private void OnGiveFood(FoodType foodType) {
         if(foodType == FoodType.LollipopB) {
-            Debug.Log("Game Over");
+            GameManager.Instance.ChangeGameState(GameStates.GameOverWin);
             return;
         }
 
