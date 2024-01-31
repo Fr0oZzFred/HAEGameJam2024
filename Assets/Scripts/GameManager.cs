@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] InputAction pauseAction;
 
     public bool IsUsingGamepad { get {
+            if (Gamepad.current == null) return false;
             return Keyboard.current.lastUpdateTime < Gamepad.current.lastUpdateTime;
         } }
 

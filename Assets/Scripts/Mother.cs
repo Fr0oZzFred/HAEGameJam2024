@@ -22,15 +22,20 @@ public class Mother : MonoBehaviour {
         LevelManager.Instance.OnNoiseChanged += OnNoiseChanged;
         animator = GetComponent<Animator>();
     }
-
+    private void Update() {
+        if (curState == MotherState.Warning) CheckPlayer();
+    }
     private void OnNoiseChanged(float NewNoise) {
-        if (NewNoise >= warningThreshold) {
-            if (curState == MotherState.Warning) return;
-            StartCoroutine(ChangeState(MotherState.Warning));
-            return;
-        }
         if(NewNoise >= doubtThreshold) {
-            if (curState == MotherState.Doubt) return;
+            if (curState == MotherState.Doubt) {
+                bool breakCoroutine = LevelManager.Instance.Noise >= warningThreshold;
+                if (breakCoroutine) {
+                    changeStateCoroutineRunning = false;
+                    StopAllCoroutines();
+                    StartCoroutine(ChangeState(MotherState.Warning));
+                }
+                return;
+            }
             StartCoroutine(ChangeState(MotherState.Doubt));
             return;
         }
@@ -54,14 +59,15 @@ public class Mother : MonoBehaviour {
             case MotherState.Doubt:
                 onDoubtEvent.Invoke();
                 float r = UnityEngine.Random.Range(0.0f, 100.0f);
-                doubtToWarning = r >= 80.0f;
+                //True or 1/5 chance
+                doubtToWarning = LevelManager.Instance.Noise >= warningThreshold || r >= 80.0f;
                 break;
             case MotherState.Warning:
                 onWarningEvent.Invoke();
                 CheckPlayer();
                 break;
         }
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(2.0f);
         changeStateCoroutineRunning = false;
         if (doubtToWarning)
             StartCoroutine(ChangeState(MotherState.Warning));
