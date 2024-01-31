@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Objective : MonoBehaviour {
-    [SerializeField] List<Sprite> foodIcons;
+    [SerializeField] GameObject bubble;
     [SerializeField] SpriteRenderer askedfoodSprite;
+    [SerializeField] List<Sprite> foodIcons;
 
     Animator animator;
 
@@ -29,6 +30,7 @@ public class Objective : MonoBehaviour {
     }
 
     public void DisplayObjective(bool b) {
+        bubble.SetActive(b);
         animator.SetBool("Open", b);
     }
 }

@@ -40,6 +40,7 @@ public class Player : MonoBehaviour {
     }
     public void ToggleVisibility() {
         GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+        if (carriedItem) carriedItem.SetActive(!carriedItem.activeInHierarchy);
         if (GetComponent<SpriteRenderer>().enabled)
             moveAction.Enable();
         else
