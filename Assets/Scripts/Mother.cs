@@ -79,6 +79,9 @@ public class Mother : MonoBehaviour {
         if (LevelManager.Instance.Player.CarriedItem &&
             LevelManager.Instance.Player.IsVisible) {
             GameManager.Instance.ChangeGameState(GameStates.GameOverLose);
+            animator.SetBool("Warning", false);
+            animator.SetBool("Doubt", false);
+            animator.SetBool("Angry", true);
         }
     }
 }
