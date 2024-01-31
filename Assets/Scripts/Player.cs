@@ -22,12 +22,12 @@ public class Player : MonoBehaviour {
 
     private void Awake() {
         moveAction = inputActions.FindActionMap("Gameplay").FindAction("move");
-        OnDisable();
         sr = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
     private void Start() {
         GameManager.Instance.OnGameStateChanged += OnGameStateChanged;
+        OnDisable();
     }
     private void OnGameStateChanged(GameStates newState) {
         if (newState == GameStates.InGame) OnEnable();
