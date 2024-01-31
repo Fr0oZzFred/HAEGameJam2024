@@ -10,6 +10,7 @@ public class DelayEvent : MonoBehaviour
     }
     IEnumerator Delay() {
         yield return new WaitForSeconds(duration);
+        if (!this.gameObject.activeInHierarchy) yield break;
         onDelayFinished.Invoke();
     }
 }
