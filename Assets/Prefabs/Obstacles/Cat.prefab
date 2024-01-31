@@ -24,10 +24,18 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.24
       objectReference: {fileID: 0}
+    - target: {fileID: 1659246661612472951, guid: 834a1859f33c8294e8add4d179898d27, type: 3}
+      propertyPath: destroyableObstacle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2582618903484395639, guid: 834a1859f33c8294e8add4d179898d27, type: 3}
       propertyPath: m_Name
       value: Cat
       objectReference: {fileID: 0}
+    - target: {fileID: 2925205194121390217, guid: 834a1859f33c8294e8add4d179898d27, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e571c3a51d000ee42970bd43fc225ee1, type: 2}
     - target: {fileID: 4894662955972133823, guid: 834a1859f33c8294e8add4d179898d27, type: 3}
       propertyPath: m_audioClip
       value: 

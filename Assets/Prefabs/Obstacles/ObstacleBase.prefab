@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8129094100675618013}
   - component: {fileID: 5855028068922431894}
+  - component: {fileID: 2925205194121390217}
   - component: {fileID: 1509362383193211864}
   - component: {fileID: 8601904004728512973}
   - component: {fileID: 1659246661612472951}
@@ -88,6 +89,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2925205194121390217
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582618903484395639}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &1509362383193211864
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d920ca1d430a2b4593ccab032dbdfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyableObstacle: 0
 --- !u!82 &4894662955972133823
 AudioSource:
   m_ObjectHideFlags: 0
