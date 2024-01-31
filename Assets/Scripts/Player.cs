@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     GameObject carriedItem;
 
     SpriteRenderer sr;
+    Animator animator;
 
     public bool IsVisible => sr.enabled;
     public bool IsCarryingFood => carriedItem.GetComponent<Food>() != null;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour {
     private void Awake() {
         moveAction = inputActions.FindActionMap("Gameplay").FindAction("move");
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
     void Update() {
         UpdateMovementInput();
@@ -31,6 +33,9 @@ public class Player : MonoBehaviour {
     }
     void UpdateMovementInput() {
         movement = moveAction.ReadValue<Vector2>();
+        animator.SetFloat("X", movement.x);
+        animator.SetFloat("Y", movement.y);
+        animator.SetBool("IsMoving", movement.magnitude != 0.0f);
     }
     void OnEnable() {
         inputActions.FindActionMap("gameplay").Enable();
