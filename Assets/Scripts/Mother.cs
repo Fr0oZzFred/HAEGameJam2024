@@ -76,12 +76,14 @@ public class Mother : MonoBehaviour {
     void CheckPlayer() {
         Debug.Log("Check");
         LevelManager.Instance.MakeNoise(-100.0f);
-        if (LevelManager.Instance.Player.CarriedItem &&
-            LevelManager.Instance.Player.IsVisible) {
+        if (LevelManager.Instance.Player.IsVisible) {
             GameManager.Instance.ChangeGameState(GameStates.GameOverLose);
             animator.SetBool("Warning", false);
             animator.SetBool("Doubt", false);
             animator.SetBool("Angry", true);
         }
+    }
+    public void SetMusicVolume(float volume) {
+        GameManager.Instance.MusicSource.volume = volume;
     }
 }

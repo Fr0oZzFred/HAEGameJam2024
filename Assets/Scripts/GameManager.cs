@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] InputAction pauseAction;
 
+    public AudioSource MusicSource { get; private set; }
     public bool IsUsingGamepad { get {
             if (Gamepad.current == null) return false;
             return Keyboard.current.lastUpdateTime < Gamepad.current.lastUpdateTime;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour {
             Destroy(this.gameObject);
     }
     IEnumerator Start() {
+        MusicSource = GetComponent<AudioSource>();
         pauseAction.performed += OnPauseAsked;
         yield return new WaitForSeconds(0.1f);
         OnGameStateChanged.Invoke(CurGameState);
