@@ -14,6 +14,8 @@ public class Objective : MonoBehaviour {
     [SerializeField] UnityEvent OnWrongFood;
     [SerializeField] UnityEvent OnGoodFood;
     public OnGiveFoodDelegate OnGiveFood;
+
+    float happyProgression = 0.0f;
     private void Awake() {
         animator = GetComponent<Animator>();
     }
@@ -36,5 +38,10 @@ public class Objective : MonoBehaviour {
     public void DisplayObjective(bool b) {
         bubble.SetActive(b);
         animator.SetBool("Open", b);
+    }
+
+    public void AddProgression(float amount) {
+        happyProgression += amount;
+        animator.SetFloat("Score", happyProgression);
     }
 }

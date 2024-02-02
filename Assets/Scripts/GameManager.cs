@@ -44,7 +44,9 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         OnGameStateChanged.Invoke(CurGameState);
     }
-
+    private void Update() {
+        if (Keyboard.current.yKey.wasPressedThisFrame) ChangeGameState(GameStates.GameOverWin);
+    }
     private void OnPauseAsked(InputAction.CallbackContext obj) {
         Debug.Log("pause");
     }
